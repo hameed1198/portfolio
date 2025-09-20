@@ -1,15 +1,15 @@
-// Clean JavaScript for MHK Portfolio
+// Optimized JavaScript for MHK Portfolio
 
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize GSAP
-    gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin);
+    // Initialize GSAP with only required plugins
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     
     // Loading Animation
     initLoadingAnimation();
     
-    // Initialize Three.js background immediately
-    initThreeJSBackground();
+    // Initialize lightweight background effect
+    initLightweightBackground();
 
     // Mobile Navigation
     const hamburger = document.getElementById('hamburger');
@@ -30,14 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Smooth scrolling for navigation links
+    // Optimized smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 gsap.to(window, {
-                    duration: 1,
+                    duration: 0.8,
                     scrollTo: target,
                     ease: "power2.inOut"
                 });
@@ -231,61 +231,60 @@ function initScrollAnimations() {
     const isMobile = window.innerWidth < 768;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    // Section titles animation - simplified for mobile
+    if (prefersReducedMotion) {
+        // Skip complex animations for users who prefer reduced motion
+        document.querySelectorAll('.skill-item, .project-card, .experience-item, .education-item').forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+        });
+        return;
+    }
+    
+    // Optimized section titles animation
     gsap.utils.toArray('.section-title').forEach(title => {
         gsap.from(title, {
             scrollTrigger: {
                 trigger: title,
                 start: "top 85%",
-                end: "bottom 15%",
                 toggleActions: "play none none reverse"
             },
-            duration: isMobile ? 0.8 : 1.2,
-            y: isMobile ? 30 : 60,
+            duration: isMobile ? 0.6 : 1,
+            y: isMobile ? 20 : 40,
             opacity: 0,
-            scale: isMobile ? 0.95 : 0.8,
-            ease: isMobile ? "power2.out" : "back.out(1.7)"
+            ease: "power2.out"
         });
     });
 
-    // About section - simplified animation
+    // About section - optimized
     gsap.from('.about-content', {
         scrollTrigger: {
             trigger: '.about-content',
             start: "top 80%",
-            end: "bottom 20%",
             toggleActions: "play none none reverse"
         },
-        duration: isMobile ? 1 : 1.5,
-        y: isMobile ? 40 : 80,
+        duration: isMobile ? 0.8 : 1.2,
+        y: isMobile ? 30 : 50,
         opacity: 0,
         ease: "power2.out"
     });
 
-    // Skills animation - optimized
+    // Skills animation - highly optimized
     gsap.utils.toArray('.skill-item').forEach((item, index) => {
-        gsap.set(item, {
-            opacity: 0,
-            y: isMobile ? 30 : 60,
-            rotationZ: isMobile ? 0 : -10, // No rotation on mobile
-            scale: isMobile ? 0.95 : 0.8
-        });
-        
-        gsap.to(item, {
+        gsap.from(item, {
             scrollTrigger: {
                 trigger: item,
                 start: "top 90%",
-                end: "bottom 10%",
                 toggleActions: "play none none reverse"
             },
-            duration: isMobile ? 0.8 : 1.2,
-            opacity: 1,
-            y: 0,
-            rotationZ: 0,
-            scale: 1,
-            delay: index * (isMobile ? 0.05 : 0.08),
-            ease: isMobile ? "power2.out" : "back.out(1.7)"
-            // Removed continuous floating animation for performance
+            duration: isMobile ? 0.6 : 0.8,
+            y: isMobile ? 20 : 40,
+            opacity: 0,
+            delay: index * (isMobile ? 0.03 : 0.05),
+            ease: "power2.out",
+            onComplete: function() {
+                // Remove will-change after animation
+                item.classList.add('animated');
+            }
         });
     });
 
@@ -295,16 +294,16 @@ function initScrollAnimations() {
             scrollTrigger: {
                 trigger: item,
                 start: "top 90%",
-                end: "bottom 10%",
                 toggleActions: "play none none reverse"
             },
-            duration: isMobile ? 0.8 : 1.3,
-            x: isMobile ? -30 : -80,
+            duration: isMobile ? 0.6 : 1,
+            x: isMobile ? -20 : -40,
             opacity: 0,
-            rotationY: isMobile ? 0 : -15, // No 3D rotation on mobile
-            scale: isMobile ? 0.98 : 0.9,
-            delay: index * (isMobile ? 0.1 : 0.15),
-            ease: "power2.out"
+            delay: index * 0.1,
+            ease: "power2.out",
+            onComplete: function() {
+                item.classList.add('animated');
+            }
         });
     });
 
@@ -314,16 +313,16 @@ function initScrollAnimations() {
             scrollTrigger: {
                 trigger: item,
                 start: "top 90%",
-                end: "bottom 10%",
                 toggleActions: "play none none reverse"
             },
-            duration: isMobile ? 0.8 : 1.4,
-            y: isMobile ? 40 : 70,
+            duration: isMobile ? 0.6 : 1,
+            y: isMobile ? 20 : 40,
             opacity: 0,
-            rotationX: isMobile ? 0 : 20, // No 3D rotation on mobile
-            scale: isMobile ? 0.95 : 0.85,
-            delay: index * (isMobile ? 0.1 : 0.2),
-            ease: isMobile ? "power2.out" : "back.out(1.4)"
+            delay: index * 0.1,
+            ease: "power2.out",
+            onComplete: function() {
+                item.classList.add('animated');
+            }
         });
     });
 
@@ -333,16 +332,16 @@ function initScrollAnimations() {
             scrollTrigger: {
                 trigger: card,
                 start: "top 90%",
-                end: "bottom 10%",
                 toggleActions: "play none none reverse"
             },
-            duration: isMobile ? 0.8 : 1.5,
-            y: isMobile ? 40 : 100,
+            duration: isMobile ? 0.6 : 1,
+            y: isMobile ? 20 : 40,
             opacity: 0,
-            rotationZ: isMobile ? 0 : 5, // No rotation on mobile
-            scale: isMobile ? 0.9 : 0.7,
-            delay: index * (isMobile ? 0.08 : 0.12),
-            ease: "power2.out"
+            delay: index * 0.08,
+            ease: "power2.out",
+            onComplete: function() {
+                card.classList.add('animated');
+            }
         });
     });
 
@@ -351,11 +350,10 @@ function initScrollAnimations() {
         scrollTrigger: {
             trigger: '.contact-content',
             start: "top 85%",
-            end: "bottom 15%",
             toggleActions: "play none none reverse"
         },
-        duration: isMobile ? 0.8 : 1.3,
-        y: isMobile ? 30 : 60,
+        duration: isMobile ? 0.6 : 1,
+        y: isMobile ? 20 : 40,
         opacity: 0,
         ease: "power2.out"
     });
@@ -366,14 +364,12 @@ function initScrollAnimations() {
             scrollTrigger: {
                 trigger: item,
                 start: "top 90%",
-                end: "bottom 10%",
                 toggleActions: "play none none reverse"
             },
-            duration: isMobile ? 0.6 : 1,
-            x: isMobile ? 0 : (index % 2 === 0 ? -50 : 50), // No sliding on mobile
-            y: isMobile ? 20 : 0,
+            duration: 0.6,
+            y: 15,
             opacity: 0,
-            delay: index * 0.1,
+            delay: index * 0.08,
             ease: "power2.out"
         });
     });
@@ -384,91 +380,45 @@ function initScrollAnimations() {
             scrollTrigger: {
                 trigger: '.social-links',
                 start: "top 90%",
-                end: "bottom 10%",
                 toggleActions: "play none none reverse"
             },
-            duration: 0.6,
+            duration: 0.5,
             scale: 0,
-            rotation: isMobile ? 0 : 180, // No rotation on mobile
-            delay: index * 0.1,
-            ease: isMobile ? "power2.out" : "back.out(1.7)"
+            delay: index * 0.08,
+            ease: "back.out(1.7)"
         });
     });
 }
 
-function initThreeJSBackground() {
-    // Performance check - disable on mobile and low-end devices
-    const isMobile = window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    const isLowPerformance = navigator.hardwareConcurrency < 4 || navigator.deviceMemory < 4;
+// Lightweight background effect - pure CSS based
+function initLightweightBackground() {
+    // Add lightweight particle effect class to body
+    document.body.classList.add('particles-active');
     
-    if (isMobile || isLowPerformance) {
-        console.log('Three.js particles disabled for better performance');
-        return;
-    }
-
-    const canvas = document.getElementById('particleCanvas');
-    if (!canvas) return;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ 
-        canvas: canvas, 
-        alpha: true,
-        antialias: false, // Disable for performance
-        powerPreference: "high-performance"
-    });
+    // Add subtle parallax effect on scroll
+    let ticking = false;
     
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // Limit pixel ratio
-
-    // Reduced particle count for better performance
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 50; // Reduced from 150
-    const posArray = new Float32Array(particlesCount * 3);
-
-    for (let i = 0; i < particlesCount * 3; i++) {
-        posArray[i] = (Math.random() - 0.5) * 8; // Smaller area
-    }
-
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-    const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.008, // Smaller size
-        color: '#60a5fa',
-        transparent: true,
-        opacity: 0.4 // Reduced opacity
-    });
-
-    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particlesMesh);
-
-    camera.position.z = 3;
-
-    let frameCount = 0;
-    // Optimized animation loop with frame skipping
-    function animate() {
-        requestAnimationFrame(animate);
+    function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.lightweight-particles');
         
-        frameCount++;
-        // Skip every other frame for smoother performance
-        if (frameCount % 2 === 0) {
-            particlesMesh.rotation.x += 0.0003; // Slower rotation
-            particlesMesh.rotation.y += 0.0005;
-            
-            renderer.render(scene, camera);
+        if (parallax) {
+            const speed = scrolled * 0.2;
+            parallax.style.transform = `translateY(${speed}px)`;
+        }
+        
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
         }
     }
-
-    animate();
-
-    // Throttled resize handler
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }, 250);
-    });
+    
+    // Only add scroll listener on desktop for performance
+    if (window.innerWidth > 768) {
+        window.addEventListener('scroll', requestTick);
+    }
 }
