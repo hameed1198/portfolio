@@ -46,35 +46,41 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Enhanced GSAP Animation Functions for MHK Loading
+// Simplified Loading Animation for Mobile Performance
 function initLoadingAnimation() {
     const loaderText = document.querySelector('.loader-text');
     const loaderBar = document.querySelector('.loader-bar');
+    const isMobile = window.innerWidth < 768;
+    
+    // Faster loading for mobile
+    const loadingDuration = isMobile ? 1500 : 2500;
+    const transitionDelay = isMobile ? 1000 : 1800;
     
     // Start progress bar animation
     setTimeout(() => {
         if (loaderBar) {
             loaderBar.style.width = '100%';
         }
-    }, 1000);
+    }, 500);
     
-    // After letters appear, start zoom animation
+    // Start fade out transition much sooner
     setTimeout(() => {
         startZoomTransition();
-    }, 4000); // Wait for letters to fully appear
+    }, transitionDelay);
 }
 
 function startZoomTransition() {
     const loaderText = document.querySelector('.loader-text');
+    const isMobile = window.innerWidth < 768;
     
     if (loaderText) {
-        // Add zoom animation class
+        // Add simplified fade animation class
         loaderText.classList.add('zoom-animation');
         
-        // Hide the entire loader after zoom completes
+        // Hide the entire loader after animation completes
         setTimeout(() => {
             hideLoader();
-        }, 1500); // Match the dramaticZoom animation duration
+        }, isMobile ? 500 : 800);
     }
 }
 
