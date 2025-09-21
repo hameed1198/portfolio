@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize GSAP with only required plugins
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     
-    // Loading Animation
+    // Enhanced Loading Animation
     initLoadingAnimation();
     
     // Initialize lightweight background effect
@@ -46,58 +46,196 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Simplified Loading Animation for Mobile Performance
+// Enhanced Loading Animation with Advanced Controls
 function initLoadingAnimation() {
     const loaderText = document.querySelector('.loader-text');
     const loaderBar = document.querySelector('.loader-bar');
+    const progressGlow = document.querySelector('.progress-glow');
+    const loadingPercentage = document.querySelector('.loading-percentage');
     const isMobile = window.innerWidth < 768;
     
-    // Faster loading for mobile
-    const loadingDuration = isMobile ? 1500 : 2500;
-    const transitionDelay = isMobile ? 1000 : 1800;
+    // Enhanced timing for smoother experience
+    const loadingDuration = isMobile ? 2000 : 3000;
+    const transitionDelay = isMobile ? 1500 : 2500;
     
-    // Start progress bar animation
-    setTimeout(() => {
-        if (loaderBar) {
-            loaderBar.style.width = '100%';
+    let currentProgress = 0;
+    const targetProgress = 100;
+    const increment = 2;
+    
+    // Smooth progress animation with realistic loading simulation
+    const progressInterval = setInterval(() => {
+        if (currentProgress < targetProgress) {
+            // Simulate realistic loading curve
+            const remainingProgress = targetProgress - currentProgress;
+            const speed = Math.max(0.5, remainingProgress * 0.02);
+            currentProgress = Math.min(targetProgress, currentProgress + speed);
+            
+            // Update progress bar and glow
+            if (loaderBar) {
+                loaderBar.style.width = currentProgress + '%';
+            }
+            if (progressGlow) {
+                progressGlow.style.width = currentProgress + '%';
+            }
+            if (loadingPercentage) {
+                loadingPercentage.textContent = Math.floor(currentProgress) + '%';
+            }
+        } else {
+            clearInterval(progressInterval);
+            // Start exit animation when loading completes
+            setTimeout(() => {
+                startEnhancedTransition();
+            }, 500);
         }
-    }, 500);
+    }, 50);
     
-    // Start fade out transition much sooner
-    setTimeout(() => {
-        startZoomTransition();
-    }, transitionDelay);
+    // Add subtle screen shake effect for premium feel
+    if (!isMobile) {
+        setTimeout(() => {
+            gsap.to('.loader', {
+                duration: 0.1,
+                x: 2,
+                repeat: 3,
+                yoyo: true,
+                ease: "power2.inOut"
+            });
+        }, 1000);
+    }
 }
 
-function startZoomTransition() {
+function startEnhancedTransition() {
     const loaderText = document.querySelector('.loader-text');
+    const loaderWrapper = document.querySelector('.loader-wrapper');
     const isMobile = window.innerWidth < 768;
     
     if (loaderText) {
-        // Add simplified fade animation class
+        // Enhanced exit animation with 3D transforms
         loaderText.classList.add('zoom-animation');
         
-        // Hide the entire loader after animation completes
+        // Animate other elements out smoothly
+        gsap.to('.loader-subtitle, .loader-progress, .loading-percentage, .loader-dots', {
+            duration: 0.6,
+            opacity: 0,
+            y: 20,
+            stagger: 0.1,
+            ease: "power2.inOut"
+        });
+        
+        gsap.to('.floating-orbs .orb', {
+            duration: 0.8,
+            scale: 0,
+            opacity: 0,
+            stagger: 0.1,
+            ease: "back.inOut"
+        });
+        
+        // Hide the entire loader with enhanced transition
         setTimeout(() => {
-            hideLoader();
-        }, isMobile ? 500 : 800);
+            hideEnhancedLoader();
+        }, isMobile ? 600 : 1000);
     }
 }
 
-function hideLoader() {
+function hideEnhancedLoader() {
     const loader = document.querySelector('.loader-wrapper');
     if (loader) {
-        gsap.to(loader, {
-            duration: 0.5,
+        // Multi-layer exit animation
+        gsap.to('.loader-bg-animation', {
+            duration: 1,
+            scale: 2,
             opacity: 0,
+            ease: "power2.inOut"
+        });
+        
+        gsap.to(loader, {
+            duration: 1,
+            opacity: 0,
+            scale: 0.95,
             ease: "power2.inOut",
             onComplete: () => {
                 loader.style.display = 'none';
-                // Initialize main portfolio animations
-                initPageAnimations();
+                // Initialize main portfolio animations with enhanced entrance
+                initEnhancedPageAnimations();
             }
         });
     }
+}
+
+// Enhanced page animations for smoother entrance
+function initEnhancedPageAnimations() {
+    // Hero section enhanced entrance
+    gsap.fromTo('.hero-content', {
+        opacity: 0,
+        y: 50,
+        scale: 0.95
+    }, {
+        duration: 1.2,
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        ease: "power3.out"
+    });
+    
+    gsap.fromTo('.hero-content h1', {
+        opacity: 0,
+        y: 30
+    }, {
+        duration: 1,
+        opacity: 1,
+        y: 0,
+        delay: 0.3,
+        ease: "power2.out"
+    });
+    
+    gsap.fromTo('.hero-content .highlight', {
+        opacity: 0,
+        scale: 0.8
+    }, {
+        duration: 0.8,
+        opacity: 1,
+        scale: 1,
+        delay: 0.6,
+        ease: "back.out(1.7)"
+    });
+    
+    // Enhanced scroll animations
+    gsap.utils.toArray('.section').forEach(section => {
+        gsap.fromTo(section, {
+            opacity: 0,
+            y: 100
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+    
+    // Enhanced skill card animations
+    gsap.utils.toArray('.skill-card').forEach((card, index) => {
+        gsap.fromTo(card, {
+            opacity: 0,
+            y: 50,
+            rotationY: -15
+        }, {
+            opacity: 1,
+            y: 0,
+            rotationY: 0,
+            duration: 0.8,
+            delay: index * 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: card,
+                start: "top 85%"
+            }
+        });
+    });
 }
 
 function initPageAnimations() {

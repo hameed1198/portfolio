@@ -24,16 +24,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" defer></script>
 </head>
 <body>
-    <!-- Loading Screen -->
+    <!-- Enhanced Loading Screen -->
     <div class="loader-wrapper">
+        <div class="loader-bg-animation"></div>
+        <div class="floating-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="orb orb-4"></div>
+        </div>
         <div class="loader">
             <div class="loader-text">
-                <span>M</span>
-                <span>H</span>
-                <span>K</span>
+                <span data-letter="M">M</span>
+                <span data-letter="H">H</span>
+                <span data-letter="K">K</span>
             </div>
+            <div class="loader-subtitle">Python Developer</div>
             <div class="loader-progress">
                 <div class="loader-bar"></div>
+                <div class="progress-glow"></div>
+            </div>
+            <div class="loading-percentage">0%</div>
+            <div class="loader-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
         </div>
     </div>
