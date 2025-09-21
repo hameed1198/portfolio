@@ -11,6 +11,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize lightweight background effect
     initLightweightBackground();
 
+    // Debug ScrollTrigger
+    console.log('GSAP Version:', gsap.version);
+    console.log('ScrollTrigger loaded:', !!window.ScrollTrigger);
+    
+    // Add simple scroll test
+    setTimeout(() => {
+        console.log('Skills found:', document.querySelectorAll('.skill-item').length);
+        console.log('Categories found:', document.querySelectorAll('.skill-category').length);
+        
+        // Initialize skills animations immediately (don't wait for loading screen)
+        initSkillsAnimations();
+        
+        // Initialize contact animations
+        initContactAnimations();
+    }, 1000);
+
     // Mobile Navigation
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
@@ -45,6 +61,194 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Dedicated Skills Animation Function
+function initSkillsAnimations() {
+    const isMobile = window.innerWidth < 768;
+    
+    console.log('Setting up skills animations...');
+    
+    // Skills animation - Simplified and working approach
+    const skillCategories = document.querySelectorAll('.skill-category');
+    
+    console.log('Found', skillCategories.length, 'skill categories');
+    
+    if (skillCategories.length > 0) {
+        skillCategories.forEach((category, categoryIndex) => {
+            const skillItems = category.querySelectorAll('.skill-item');
+            
+            console.log('Category', categoryIndex, 'has', skillItems.length, 'skill items');
+            
+            // Set initial states immediately
+            gsap.set(category, { opacity: 0, y: 50 });
+            gsap.set(skillItems, { opacity: 0, x: -30, scale: 0.8 });
+            
+            // Category animation
+            gsap.to(category, {
+                scrollTrigger: {
+                    trigger: category,
+                    start: "top 85%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse",
+                    onEnter: () => console.log('🎬 ANIMATION TRIGGERED: Category', categoryIndex),
+                    markers: false // Change to true to see trigger points
+                },
+                duration: 0.8,
+                opacity: 1,
+                y: 0,
+                ease: "power2.out"
+            });
+            
+            // Individual skill items
+            skillItems.forEach((item, index) => {
+                gsap.to(item, {
+                    scrollTrigger: {
+                        trigger: category,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse"
+                    },
+                    duration: 0.6,
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    delay: 0.1 + (index * 0.1),
+                    ease: "back.out(1.7)",
+                    onStart: () => console.log('✨ Skill animating:', item.textContent?.trim())
+                });
+            });
+        });
+        
+        // Refresh ScrollTrigger
+        ScrollTrigger.refresh();
+        console.log('✅ Skills animations setup complete');
+    } else {
+        console.error('❌ No skill categories found!');
+    }
+}
+
+// Dedicated Contact Animation Function
+function initContactAnimations() {
+    const isMobile = window.innerWidth < 768;
+    
+    console.log('Setting up contact section animations...');
+    
+    // Get contact elements
+    const contactSection = document.querySelector('#contact');
+    const contactInfo = document.querySelector('.contact-info');
+    const contactForm = document.querySelector('.contact-form');
+    const contactItems = document.querySelectorAll('.contact-item');
+    const formGroups = document.querySelectorAll('.form-group');
+    const submitButton = document.querySelector('.contact-form .btn-primary');
+    
+    console.log('Found contact elements:', {
+        section: !!contactSection,
+        info: !!contactInfo,
+        form: !!contactForm,
+        items: contactItems.length,
+        formGroups: formGroups.length,
+        button: !!submitButton
+    });
+    
+    if (contactSection) {
+        // Set initial states
+        gsap.set(contactInfo, { opacity: 0, x: -50 });
+        gsap.set(contactForm, { opacity: 0, x: 50 });
+        gsap.set(contactItems, { opacity: 0, y: 30, scale: 0.9 });
+        gsap.set(formGroups, { opacity: 0, y: 20 });
+        gsap.set(submitButton, { opacity: 0, scale: 0.8 });
+        
+        // Contact info animation (left side)
+        gsap.to(contactInfo, {
+            scrollTrigger: {
+                trigger: contactSection,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+                onEnter: () => console.log('🎬 CONTACT INFO animation triggered')
+            },
+            duration: 0.8,
+            opacity: 1,
+            x: 0,
+            ease: "power2.out"
+        });
+        
+        // Contact form animation (right side)
+        gsap.to(contactForm, {
+            scrollTrigger: {
+                trigger: contactSection,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+                onEnter: () => console.log('🎬 CONTACT FORM animation triggered')
+            },
+            duration: 0.8,
+            opacity: 1,
+            x: 0,
+            delay: 0.2,
+            ease: "power2.out"
+        });
+        
+        // Contact items animation (staggered)
+        contactItems.forEach((item, index) => {
+            gsap.to(item, {
+                scrollTrigger: {
+                    trigger: contactSection,
+                    start: "top 75%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                },
+                duration: 0.6,
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                delay: 0.4 + (index * 0.1),
+                ease: "back.out(1.7)",
+                onStart: () => console.log('✨ Contact item animating:', index)
+            });
+        });
+        
+        // Form fields animation (staggered)
+        formGroups.forEach((group, index) => {
+            gsap.to(group, {
+                scrollTrigger: {
+                    trigger: contactForm,
+                    start: "top 85%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                },
+                duration: 0.5,
+                opacity: 1,
+                y: 0,
+                delay: 0.6 + (index * 0.1),
+                ease: "power2.out",
+                onStart: () => console.log('✨ Form field animating:', index)
+            });
+        });
+        
+        // Submit button animation
+        if (submitButton) {
+            gsap.to(submitButton, {
+                scrollTrigger: {
+                    trigger: contactForm,
+                    start: "top 85%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                },
+                duration: 0.6,
+                opacity: 1,
+                scale: 1,
+                delay: 1.0,
+                ease: "back.out(1.7)",
+                onStart: () => console.log('✨ Submit button animating')
+            });
+        }
+        
+        console.log('✅ Contact animations setup complete');
+    } else {
+        console.error('❌ Contact section not found!');
+    }
+}
 
 // Enhanced Loading Animation with Advanced Controls
 function initLoadingAnimation() {
@@ -406,25 +610,82 @@ function initScrollAnimations() {
         ease: "power2.out"
     });
 
-    // Skills animation - highly optimized
-    gsap.utils.toArray('.skill-item').forEach((item, index) => {
-        gsap.from(item, {
-            scrollTrigger: {
-                trigger: item,
-                start: "top 90%",
-                toggleActions: "play none none reverse"
-            },
-            duration: isMobile ? 0.6 : 0.8,
-            y: isMobile ? 20 : 40,
-            opacity: 0,
-            delay: index * (isMobile ? 0.03 : 0.05),
-            ease: "power2.out",
-            onComplete: function() {
-                // Remove will-change after animation
-                item.classList.add('animated');
-            }
+    // Skills animation - Restored working scroll animations
+    const skillCategories = document.querySelectorAll('.skill-category');
+    const allSkillItems = document.querySelectorAll('.skill-item');
+    
+    // Debug information
+    console.log('Setting up scroll animations for', skillCategories.length, 'categories');
+    console.log('Total skill items:', allSkillItems.length);
+    
+    if (skillCategories.length > 0 && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        
+        skillCategories.forEach((category, categoryIndex) => {
+            const skillItems = category.querySelectorAll('.skill-item');
+            
+            // Immediately set initial animation state
+            gsap.set(category, { opacity: 0, y: 50 });
+            gsap.set(skillItems, { opacity: 0, x: -30, scale: 0.8 });
+            
+            // Animate skill category container on scroll
+            gsap.to(category, {
+                scrollTrigger: {
+                    trigger: category,
+                    start: "top 85%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse",
+                    onEnter: () => {
+                        console.log('Category', categoryIndex, 'animation triggered');
+                    },
+                    markers: false // Set to true for debugging
+                },
+                duration: isMobile ? 0.6 : 0.8,
+                opacity: 1,
+                y: 0,
+                ease: "power2.out",
+                onComplete: function() {
+                    category.classList.add('animated');
+                }
+            });
+            
+            // Animate individual skill items on scroll
+            skillItems.forEach((item, index) => {
+                gsap.to(item, {
+                    scrollTrigger: {
+                        trigger: category,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse"
+                    },
+                    duration: isMobile ? 0.4 : 0.6,
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    delay: (categoryIndex * 0.15) + (index * 0.1),
+                    ease: "back.out(1.7)",
+                    onStart: function() {
+                        console.log('Skill item animating:', item.textContent.trim());
+                    },
+                    onComplete: function() {
+                        item.classList.add('animated');
+                    }
+                });
+            });
         });
-    });
+        
+        // Refresh ScrollTrigger to ensure proper calculations
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+            console.log('ScrollTrigger refreshed, animations ready');
+        }, 100);
+        
+    } else {
+        // Fallback if GSAP not available
+        console.log('GSAP not available, showing static skills');
+        [...skillCategories, ...allSkillItems].forEach(item => {
+            item.classList.add('animated');
+        });
+    }
 
     // Experience items - simplified
     gsap.utils.toArray('.experience-item').forEach((item, index) => {

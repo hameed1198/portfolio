@@ -1271,7 +1271,7 @@ section > * {
     transform: rotateY(90deg) scale(0.8);
 }
 
-/* Enhanced Hover Effects */
+/* Enhanced Hover Effects - Simplified for better animation control */
 .skill-item {
     display: flex;
     align-items: center;
@@ -1286,6 +1286,22 @@ section > * {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(148, 163, 184, 0.1);
+    /* Let GSAP handle initial state - no CSS animations */
+}
+
+.skill-category {
+    background: #334155; /* Dark background */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    /* Let GSAP handle initial state - no CSS animations */
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
 }
 
 .skill-item::before {
