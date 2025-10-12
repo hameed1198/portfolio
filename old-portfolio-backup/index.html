@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Hameed Khan - Python Developer Portfolio</title>
+    <meta name="description" content="Mohammad Hameed Khan - Associate System Engineer with 3+ years experience in Python, fullstack development, data engineering, and cloud technologies.">
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Optimized font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome - load async -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <!-- GSAP Animation Library - optimized -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" defer></script>
+</head>
+<body>
+    <!-- Enhanced Loading Screen -->
+    <div class="loader-wrapper">
+        <div class="loader-bg-animation"></div>
+        <div class="floating-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="orb orb-4"></div>
+        </div>
+        <div class="loader">
+            <div class="loader-text">
+                <span data-letter="M">M</span>
+                <span data-letter="H">H</span>
+                <span data-letter="K">K</span>
+            </div>
+            <div class="loader-subtitle">Python Developer</div>
+            <div class="loader-progress">
+                <div class="loader-bar"></div>
+                <div class="progress-glow"></div>
+            </div>
+            <div class="loading-percentage">0%</div>
+            <div class="loader-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dynamic Background System - Lightweight CSS Alternative -->
+    <div class="floating-particles"></div>
+    <div class="morphing-bg"></div>
+    <div class="lightweight-particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>MHK</h2>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Three.js Background Canvas -->
+        <canvas id="hero-canvas" class="hero-canvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Mohammad Hameed Khan</h1>
+                <h2>Associate System Engineer</h2>
+                <p>Python Developer with 3+ years of experience specializing in Fullstack & backend development, data engineering, and ETL integration. Skilled in designing and deploying RESTful APIs, managing SQL databases, and developing scalable data pipelines.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Get In Touch</a>
+                    <a href="https://www.linkedin.com/in/hameed-khan-mohammad-35b697183" target="_blank" class="btn-secondary">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div class="profile-photo">
+                        <img src="./images/profile-photo.jpg" alt="Mohammad Hameed Khan" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
+                        <!-- Fallback icon if image doesn't load -->
+                        <i class="fas fa-user-circle profile-fallback"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h3>Mohammad Hameed Khan</h3>
+                        <p>Hyderabad, India</p>
+                        <p>hameed1198@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a dedicated Python Developer with over 3 years of experience in building robust, scalable applications. My expertise spans across fullstack development, data engineering, and cloud technologies, with a strong focus on delivering efficient, reliable, and production-ready systems.</p>
+                    
+                    <p>Currently working as an Associate System Engineer at Credit Safe Technologies, I specialize in developing high-performance web applications using Python frameworks like Flask, designing and integrating RESTful APIs, and managing complex data pipelines using Apache Airflow.</p>
+                    
+                    <p>I'm passionate about solving complex technical challenges and have hands-on experience with cloud platforms like AWS, database management with MySQL and MariaDB, and implementing CI/CD pipelines for automated deployment and delivery.</p>
+                    
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-code"></i>
+                            <h4>3+ Years Experience</h4>
+                            <p>Professional development experience with Python and Flask web frameworks</p>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-database"></i>
+                            <h4>Data Engineering</h4>
+                            <p>ETL pipelines and data processing Using Airflow</p>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-cloud"></i>
+                            <h4>Cloud Technologies</h4>
+                            <p>AWS, S3, ECS, Lambda, CloudWatch</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python (3.10)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Frameworks & Libraries</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-flask"></i>
+                            <span>Flask</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <span>RESTful API</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <span>Fast API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>MariaDB</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>Redshift DB</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cloud"></i>
+                            <span>S3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cloud"></i>
+                            <span>Azure</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>CI/CD Pipeline</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Airflow</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>ETL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-stream"></i>
+                            <span>Data Pipeline</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-robot"></i>
+                            <span>Copilot</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-comments"></i>
+                            <span>ChatGPT</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-mouse-pointer"></i>
+                            <span>Cursor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">MAR 2022 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Associate System Engineer</h3>
+                        <h4>Credit Safe Technologies | Hyderabad</h4>
+                        <p>Python developer with hands-on experience in building and deploying high-performance web applications using Flask framework. Skilled in designing and integrating RESTful APIs for scalable and secure backend services.</p>
+                        
+                        <div class="project-details">
+                            <h5>Project: Global Data Editing Tool</h5>
+                            <ul>
+                                <li><strong>Tech Stack:</strong> Python, Flask, JavaScript, jQuery, SQLAlchemy ORM, MariaDB, Airflow, AWS ECS & S3, CloudWatch</li>
+                                <li>Developed a Flask-based internal web application used by data analysts and customer-facing teams to clean and process financial data</li>
+                                <li>Designed RESTful APIs to integrate customer financial data into production databases</li>
+                                <li>Handled database migrations and version upgrades using SQLAlchemy base models</li>
+                                <li>Built and scheduled Airflow DAGs with multiple async tasks for automated ETL workflows</li>
+                                <li>Deployed the application on AWS ECS and improved data quality across all entities</li>
+                                <li>Actively collaborated with cross-functional teams and used Azure DevOps for task tracking and sprint planning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">AUG 2021 - OCT 2021</div>
+                    <div class="timeline-content">
+                        <h3>Intern, Cognizant</h3>
+                        <h4>Remote</h4>
+                        <p>Completed internship program focusing on software development fundamentals and industry best practices.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">DEC 2019 - SEP 2020</div>
+                    <div class="timeline-content">
+                        <h3>Data Analyst, CYIENT</h3>
+                        <h4>Remote</h4>
+                        <p>Gained experience in data analysis and processing, working with various data sources and analytical tools.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Masters of Computer Application (JNTUK) (MCA)</h3>
+                        <h4>Sri Chaitanya Institute of Science & Technology</h4>
+                        <p class="education-location">Kakinada</p>
+                        <p class="education-date">APR 2019 - MAR 2021</p>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Bachelors of Computer Application (AKNU)(BCA)</h3>
+                        <h4>Aditya Degree College</h4>
+                        <p class="education-location">Kakinada</p>
+                        <p class="education-date">MAR 2016 - APR 2019</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="additional-info">
+                <h3>Additional Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h4>Languages</h4>
+                        <p>English, Hindi, Telugu</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Certifications</h4>
+                        <p>Development on AWS, Migrating to AWS, Data Bricks Fundamentals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always interested in discussing new opportunities, collaborating on projects, or just having a conversation about technology and development.</p>
+                    
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:hameed1198@gmail.com">hameed1198@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <a href="tel:+918919070648">+91 8919070648</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Hyderabad, India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/hameed-khan-mohammad-35b697183" target="_blank">Connect with me</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Mohammad Hameed Khan. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/hameed-khan-mohammad-35b697183" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:hameed1198@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
