@@ -96,7 +96,7 @@ const SimpleHero = () => {
                   {/* Photo */}
                   <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
                     <img
-                      src="/images/profile-photo.jpg"
+                      src="./images/profile-photo.jpg"
                       alt="Mohammad Hameed Khan"
                       className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-500"
                       onError={(e) => {
