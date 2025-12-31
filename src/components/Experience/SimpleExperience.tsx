@@ -5,7 +5,7 @@ const SimpleExperience = () => {
     {
       title: 'Associate System Engineer 2',
       company: 'Credit Safe Technologies',
-      period: 'AUG 2021 - OCT 2021',
+      period: 'March 2022 - Present',
       location: 'Hyderabad, India',
       description: 'Python Developer with strong experience in building and deploying high-performance web applications using the Flask framework to enhance business workflow.',
       achievements: [
@@ -25,15 +25,18 @@ const SimpleExperience = () => {
       technologies: ['Python', 'Flask', 'AWS S3', 'MySQL', 'MariaDB', 'REST APIs', 'GitLab', 'ECS', 'CloudWatch'],
     },
     {
-      title: 'Intern | Cognizant',
+      title: 'Data Analyst Intern',
       company: 'Cognizant',
       period: 'DEC 2019 - SEP 2020',
       location: 'Remote',
-      description: 'Data Analyst | CLIENT',
+      description: 'Gained hands-on experience in data analysis, reporting, and working with enterprise clients on data-driven solutions.',
       achievements: [
-        
+        'Performed data analysis and created reports to support business decision-making.',
+        'Collaborated with cross-functional teams to understand client requirements.',
+        'Developed Python scripts for data processing and automation tasks.',
+        'Gained exposure to enterprise-level data management practices.',
       ],
-      technologies: ['Python'],
+      technologies: ['Python', 'SQL', 'Excel', 'Data Analysis'],
     },
   ];
 

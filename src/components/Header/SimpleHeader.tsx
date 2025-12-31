@@ -48,7 +48,7 @@ const SimpleHeader = () => {
               onClick={(e) => handleNavClick(e, '#home')}
               className="text-2xl md:text-3xl font-bold text-white hover:text-blue-400 transition-colors"
             >
-              Mohammad<span className="text-blue-500">HK</span>
+              Mohammad<span className="text-blue-500">Hameed Khan</span>
             </a>
           </div>
 

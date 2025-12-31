@@ -24,7 +24,7 @@ const SimpleSkills = () => {
       category: 'Cloud & Tools',
       skills: [
         { name: 'AWS', level: 85, icon: '☁️' },
-        { name: 'Git', level: 90, icon: '�' },
+        { name: 'Git', level: 90, icon: '🔀' },
         { name: 'CI/CD Pipeline', level: 85, icon: '⚡' },
         { name: 'Copilot', level: 80, icon: '🤖' },
       ],
@@ -34,7 +34,7 @@ const SimpleSkills = () => {
       skills: [
         { name: 'MySQL', level: 95, icon: '🐬' },
         { name: 'MariaDB', level: 90, icon: '🗃️' },
-        { name: 'RedShift DB', level: 85, icon: '�' },
+        { name: 'RedShift DB', level: 85, icon: '📊' },
         { name: 'PostgreSQL', level: 80, icon: '🐘' },
       ],
     },

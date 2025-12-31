@@ -22,7 +22,7 @@ const SimpleAbout = () => {
               <div className="text-gray-300 space-y-4">
                 <p>
                   I am a dedicated <span className="text-blue-400 font-semibold">Python Developer</span> with 
-                  over 3 years of experience specializing in Fullstack & backend development, data engineering, 
+                  over 4 years of experience specializing in Fullstack & backend development, data engineering, 
                   and API integration using Flask. My expertise spans across building robust, scalable applications 
                   with a strong focus on delivering efficient, reliable, and production-ready systems.
                 </p>
@@ -45,7 +45,7 @@ const SimpleAbout = () => {
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6">
                 {[
-                  { number: '3+', label: 'Years Experience' },
+                  { number: '4+', label: 'Years Experience' },
                   { number: '50+', label: 'Projects Completed' },
                   { number: '10+', label: 'Technologies' },
                 ].map((stat, index) => (

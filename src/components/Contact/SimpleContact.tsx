@@ -120,9 +120,9 @@ const SimpleContact = () => {
                 <h4 className="text-xl font-semibold text-white mb-4">Follow Me</h4>
                 <div className="flex space-x-4">
                   {[
-                    { name: 'GitHub', icon: '🐙', link: 'https://github.com/hameedkhan' },
-                    { name: 'LinkedIn', icon: '💼', link: 'https://linkedin.com/in/hameedkhan' },
-                    { name: 'Twitter', icon: '🐦', link: 'https://twitter.com/hameedkhan' },
+                    { name: 'GitHub', icon: '🐙', link: 'https://github.com/hameed1198' },
+                    { name: 'LinkedIn', icon: '💼', link: 'https://www.linkedin.com/in/hameed-khan-mohammad-35b697183' },
+                    { name: 'Twitter', icon: '🐦', link: 'https://twitter.com/hameed1198' },
                   ].map((social, index) => (
                     <a
                       key={index}

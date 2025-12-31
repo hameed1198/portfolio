@@ -48,7 +48,7 @@ const SimpleLoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }
         {/* Logo/Name */}
         <div className="mb-8">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Mohammad<span className="text-blue-500">HK</span>
+            Mohammad<span className="text-blue-500">Hameed Khan</span>
           </h1>
           <p className="text-xl text-gray-300 opacity-80">
             Python Developer & Full Stack Engineer

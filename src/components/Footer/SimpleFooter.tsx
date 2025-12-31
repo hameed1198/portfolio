@@ -5,10 +5,10 @@ const SimpleFooter = () => {
 
   const footerLinks = {
     connect: [
-      { name: 'GitHub', href: 'https://github.com/hameedkhan', icon: '🐙' },
-      { name: 'LinkedIn', href: 'https://linkedin.com/in/hameedkhan', icon: '💼' },
-      { name: 'Email', href: 'mailto:hameedkhan@example.com', icon: '📧' },
-      { name: 'Phone', href: 'tel:+919876543210', icon: '📱' },
+      { name: 'GitHub', href: 'https://github.com/hameed1198', icon: '🐙' },
+      { name: 'LinkedIn', href: 'https://www.linkedin.com/in/hameed-khan-mohammad-35b697183', icon: '💼' },
+      { name: 'Email', href: 'mailto:hameed1198@gmail.com', icon: '📧' },
+      { name: 'Phone', href: 'tel:+918910070648', icon: '📱' },
     ],
     quickLinks: [
       { name: 'About', href: '#about' },
@@ -41,10 +41,10 @@ const SimpleFooter = () => {
             <div className="lg:col-span-2">
               <div className="mb-6">
                 <h3 className="text-2xl font-bold text-white mb-4">
-                  Mohammad<span className="text-blue-500">HK</span>
+                  Mohammad<span className="text-blue-500">Hameed Khan</span>
                 </h3>
                 <p className="text-gray-300 leading-relaxed max-w-md">
-                  Associate System Engineer with 3+ years of experience specializing in 
+                  Associate System Engineer with 4 years of experience specializing in 
                   Fullstack & backend development, data engineering, and API integration using Flask. 
                   Building scalable, high-performance web applications.
                 </p>
